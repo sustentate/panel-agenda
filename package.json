@@ -1,0 +1,22 @@
+{
+  "name": "panel-agenda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sustentate/panel-agenda.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sustentate/panel-agenda/issues"
+  },
+  "homepage": "https://github.com/sustentate/panel-agenda#readme",
+  "dependencies": {
+    "pug": "^2.0.3"
+  }
+}
