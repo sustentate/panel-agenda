@@ -1,0 +1,70 @@
+.conteinerpageevent
+    .conteinform
+        button.collapsible 
+          h3 Crear Evento
+        .formevent
+          form(action="").formflexe
+            .formleft
+              .formgroup
+                .columf.w50
+                  label(for="Nombre")
+                    b Nombre
+                  input(type="text", name="Nombre" required)
+                  label(for="Descripcion")
+                    b Descripcion corta
+                  textarea(name="Descipcion", cols="10", rows="10")
+                input(type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple)
+                label(for="file")
+                  b(class="bimgtext") <i class="fas fa-cloud-upload-alt"></i> 
+                    span Arrastra y tira las imagenes aca
+              //- Mas adelante se implementara un mejor upload Files
+              label(for="Desclarge")
+                b Descripcion larga
+              textarea(name="Desclarge", cols="10", rows="5")
+            .formright
+              .formgroup
+                .columf.w45
+                  label(for="desde")
+                    b Desde
+                  input(type="text" name="desde" required)
+                  label(for="desde")
+                    b Nombre y apellido
+                  input(type="text" name="desde" required)
+                  label(for="desde")
+                    b Direccion
+                  input(type="text" name="desde" required)
+                  label(for="desde")
+                    b Pago
+                  input(type="text" name="desde" required)
+                  .checkcontain
+                    span 
+                      b Propio
+                    label(id="labelch" class="switch")
+                      input(type="checkbox" checked)
+                      span.slider.round
+                .columf.w45
+                  label(for="desde")
+                    b Hasta
+                  input(type="text" name="desde" required)
+                  label(for="desde")
+                    b Mail
+                  input(type="text" name="desde" required)
+                  label(for="desde")
+                    b Localidad
+                  input(type="text" name="desde" required)
+                  label(for="desde")
+                    b Link
+                  input(type="text" name="desde" required)
+                  .checkcontain
+                    span 
+                      b Destacado
+                    label(id="labelch" class="switch")
+                      input(type="checkbox" checked)
+                      span.slider.round
+              button(id="btnsubmitevent" type="submit")
+                span Subir <i class="fas fa-external-link-alt"></i>
+    .conteinform
+        button.collapsible 
+          h3 Todos los Eventos
+        .allevents
+          p Las cards de los eventos deben generarse en el div con clase "allevents".

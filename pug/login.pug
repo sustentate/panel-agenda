@@ -1,0 +1,19 @@
+doctype
+html(lang="es")
+  head
+    include modules/head
+  body#loginbg
+    .contentlog
+        .loginform
+            form(action="").formlog
+                img(class="img-login" src="https://lh3.googleusercontent.com/eF6R13OkVX_B2z7OfhYkjN4fRKe27nFH9l-HDfHMCqTETwfupkI8R2VV3acyK83Syuw8cNLlzwO6UlDYeApyFEoH868StCEkUl1miN7i61JA6TpuWiFHsx4lP3qnkyNG9eJuBzAd0C4ELfm8c2iSKDaoSwrkVTmUojxy5LsThYnSV2XNR1wTl_Jk0B-gRPOBi1ltrDoPEY3BvbsfSyJ9GeZ5oYpvJh4c2Rp3_t5Ni4hgkNq4yPHFxcQWb3e40-BCDZlmqHyXLdZKsgb9tOYpbc6p6KGTurLxcEHGADO7PF87p7SGYssE1HLCTK0wXR2sqSP2KjbU6ITPQQIaWAoZbR2S_Y5_Tw_OnPnlTZhLuUdQdVFHGRepIUkbhy9cRxT9Zobcp-Q6XxrhfzuGhq9n3CDKXfC278EthfD-TyrucT6JnCipIAdTKSn5J6EIfcCTrQ3J00veHxB2RXycu51aDYLseEYEA_BJ500KzhdIfYWbK6vE0dce1mxFE-aGrG3_R7myEvZCCtOgqfpwk59VBcjFrfqASi7wINYwvG2GXe1REXl1PWB4dPGfpxGyRIF7yQ5alsgvjvf8NcS-7oWeGAeB3KZ58GlW=w1920-h969", alt="")
+                .itemsform
+                    label(for="email") 
+                        b Email
+                    input(type="email" name="email")
+                    label(for="password")
+                        b Contraseña
+                    input(type="password" name="password")
+                    button(type="submit") 
+                        b Iniciar Sesión
+    include modules/scripts
