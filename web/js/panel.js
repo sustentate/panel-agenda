@@ -41,3 +41,6 @@ Array.prototype.forEach.call( inputs, function( input )
 			label.innerHTML = labelVal;
 	});
 });
+
+$('#desdedate').dateDropper();
+$('#hastadate').dateDropper();

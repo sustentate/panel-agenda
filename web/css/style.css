@@ -95,26 +95,26 @@ button:focus {
   padding-bottom: 10px;
   padding-left: 10px; }
 
-ul {
+#sidebar ul {
   padding-left: 0px; }
 
-ul li {
+#sidebar ul li {
   color: #fff;
   list-style: none;
   padding: 15px 5px;
   font-size: 1.2em; }
 
-ul li:hover {
+#sidebar ul li:hover {
   background-color: #198F73;
   border-left: #fff solid 5px; }
 
-ul li a {
+#sidebar ul li a {
   color: #fff;
   -webkit-text-decoration-line: none;
   text-decoration-line: none;
   text-underline-position: none; }
 
-ul li svg {
+#sidebar ul li svg {
   padding-left: 20px; }
 
 #homea {
