@@ -44,3 +44,46 @@ Array.prototype.forEach.call( inputs, function( input )
 
 $('#desdedate').dateDropper();
 $('#hastadate').dateDropper();
+
+ //GRID DASHBOARD
+ var elem = document.querySelector('.grid');
+ var pckry = new Packery( elem, {
+  itemSelector: '.grid-item',
+  gutter: '.gutter-sizer',
+  percentPosition: true
+ });
+
+ var draggies = [];
+ var isDrag = false;
+ 
+ pckry.getItemElements().forEach( function( itemElem ) {
+   var draggie = new Draggabilly( itemElem );
+   pckry.bindDraggabillyEvents( draggie );
+   draggie.disable();
+   draggies.push( draggie );
+ });
+ 
+ 
+ var toggleDragButton = document.querySelector('.toggle-drag-button');
+ toggleDragButton.addEventListener( 'click', function() {
+   var method = isDrag ? 'disable' : 'enable';
+   if (method == 'enable') {
+    this.style.backgroundColor = "#26c281";
+   }else if(method == 'disable'){
+    this.style.backgroundColor = "#cf000f";
+   }
+   
+   draggies.forEach( function( draggie ) {
+     draggie[ method ]();
+   });
+   // switch flag
+   isDrag = !isDrag;
+ });
+
+ 
+  //LOADER
+  window.addEventListener("load", function () {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden"; // class "loader hidden"
+    console.log('pagina cargada!');
+});
