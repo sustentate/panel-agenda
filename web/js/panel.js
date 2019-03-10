@@ -44,3 +44,10 @@ Array.prototype.forEach.call( inputs, function( input )
 
 $('#desdedate').dateDropper();
 $('#hastadate').dateDropper();
+
+//LOADER
+window.addEventListener("load", function () {
+  const loader = document.querySelector(".loader");
+  loader.className += " hidden"; // class "loader hidden"
+  console.log('pagina cargada!');
+});
