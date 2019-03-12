@@ -397,6 +397,11 @@ button:focus {
     border-radius: 5px;
     margin: 2em 0em;
     flex-direction: column;
+    transition: transform .2s;
+}
+
+.cardsevents:hover{
+    transform: scale(1.1); 
 }
 .titulocard{
     display: flex;
@@ -414,12 +419,13 @@ button:focus {
 .imgcard{
     width: 100%;
     height: 20em;
+    object-fit:cover;
 }
 .btncardbot{
     display: flex;
     width: 100%;
     height: 5em;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 0 auto;
 }
@@ -432,6 +438,7 @@ button:focus {
     border: 0px;
     color: #fff;
     cursor: pointer;
+    margin: 0 auto;
 }
 // login
 #loginbg{
