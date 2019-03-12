@@ -1,3 +1,8 @@
+
+const ApiEvents = require('eventosRestClient');
+
+const api = new ApiEvents();
+
 function toggleSidebar(){
     document.getElementById('sidebar').classList.toggle('active');
     document.getElementById('homea').classList.toggle('active');
@@ -44,3 +49,5 @@ Array.prototype.forEach.call( inputs, function( input )
 
 $('#desdedate').dateDropper();
 $('#hastadate').dateDropper();
+
+api.get

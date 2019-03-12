@@ -51,4 +51,6 @@ class Event {
             "\"urlImage\":" + this.urlImage +
         "}")
     }
+
+    
 }
