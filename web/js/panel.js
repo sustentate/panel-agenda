@@ -1,7 +1,9 @@
-
-const ApiEvents = require('eventosRestClient');
-
-const api = new ApiEvents();
+//LOADER
+window.addEventListener("load", function () {
+  const loader = document.querySelector(".loader");
+  loader.className += " hidden"; // class "loader hidden"
+  console.log('pagina cargada!');
+});
 
 function toggleSidebar(){
     document.getElementById('sidebar').classList.toggle('active');
@@ -50,4 +52,18 @@ Array.prototype.forEach.call( inputs, function( input )
 $('#desdedate').dateDropper();
 $('#hastadate').dateDropper();
 
-api.get
+var eventoscardsall = $('#allevents')
+
+axios.get('https://sustentatemiddleware-generous-bonobo.mybluemix.net/events')
+  .then(function(res) {
+    if(res.status==200) {
+      res.data.forEach(function(eventos){
+        var titulo = eventos.title;
+        eventoscardsall.append('<div class="cardsevents"> <div class="titulocard"><h4>'+titulo+'</h4></div> <div class="imgcontentcard"> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
+        console.log(titulo);
+      })
+    }
+  })
+  .catch(function(err) {
+    console.log(err);
+  })
