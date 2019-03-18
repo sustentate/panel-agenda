@@ -11,5 +11,13 @@ class Contact{
     get email(){return this.email}
 
     get lastName(){return this.lastName}
+    toJson = function (){
+        return ("{" +
+            "\"id\":\"" + this.id + "\"," +
+            "\"name\":\"" + this.name + "\"," +
+            "\"email\":\"" + this.email + "\"," +
+            "\"lastName\":" + this.lastName +
+        "}");
+    }
     
 }

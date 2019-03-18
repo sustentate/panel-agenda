@@ -54,7 +54,19 @@ $('#hastadate').dateDropper();
 
 var eventoscardsall = $('#allevents')
 
-axios.get('https://sustentatemiddleware-generous-bonobo.mybluemix.net/events')
+eventosRestClient.exportListEvent()
+  .then(events => {
+    events.forEach(function(event){
+      var titulo = event.title;
+      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard"><h4>'+titulo+'</h4></div> <div class="imgcontentcard"> <img class="imgcard" src="'+event.urlImage+'"></div> <div class="btncardbot"> <button class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
+      console.log(titulo);
+    })
+  }).catch(function(err) {
+    console.log(err);
+  })
+
+
+/*axios.get('https://sustentatemiddleware-generous-bonobo.mybluemix.net/events')
   .then(function(res) {
     if(res.status==200) {
       res.data.forEach(function(eventos){
@@ -64,6 +76,5 @@ axios.get('https://sustentatemiddleware-generous-bonobo.mybluemix.net/events')
       })
     }
   })
-  .catch(function(err) {
-    console.log(err);
-  })
+  
+*/

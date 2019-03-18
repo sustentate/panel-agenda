@@ -27,5 +27,24 @@ const eventosRestClient = {
 
     updateEvent(event) {
         axios.put(this._URL, event)
+    },
+    makeEvent(jsonEvent){
+        return new Event (jsonEvent._id, jsonEvent._rev, jsonEvent.title, jsonEvent.description, jsonEvent.link, jsonEvent.published,
+            jsonEvent.promoted, jsonEvent.address, jsonEvent.price, jsonEvent.startDate, jsonEvent.contact,jsonEvent.image);
+    },
+    eventsList(jsonEventList) {
+        return jsonEventList.map(jsonEvent => this.makeEvent(jsonEvent))
+        
+    },
+    async exportListEvent(){
+        try{
+            const jsonEvents = await this.getEvents();
+            return  this.eventsList(jsonEvents);
+        }catch(err){
+            console.log(err)
+        }
     }
 }
+
+
+
