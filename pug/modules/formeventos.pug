@@ -9,10 +9,10 @@
                 .columf.w50
                   label(for="Nombre")
                     b Nombre
-                  input(type="text", name="Nombre" required)
+                  input(type="text", name="Nombre" id="evname" required)
                   label(for="Descripcion")
                     b Descripcion corta
-                  textarea(name="Descipcion", cols="10", rows="10")
+                  textarea(name="Descipcion", id="descev" cols="10", rows="10")
                 input(type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple)
                 label(for="file")
                   b(class="bimgtext") <i class="fas fa-cloud-upload-alt"></i> 
@@ -67,3 +67,4 @@
         button.collapsible 
           h3 Todos los Eventos
         #allevents
+#show_test

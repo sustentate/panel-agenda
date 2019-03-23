@@ -1,12 +1,12 @@
 class Event {
-    constructor(_id, _rev, title, description, link, published,
+    constructor(id, _rev, title, description, link, published,
                  promoted, address, price, startDate, contact, urlImage) {
       this.title = title
       this.description = description
       this.link = link
       this.contact = contact ? new Contact(contact.name, contact.email, contact.lastName) : null
       this.urlImage = urlImage
-      this._id = _id
+      this.id = id
       this._rev = _rev
       this.published = published
       this.promoted = promoted
@@ -19,7 +19,7 @@ class Event {
  
     toJson = function (){
         return ("{" +
-            "\"_id\":\"" + this._id + "\"," +
+            "\"id\":\"" + this.id + "\"," +
             "\"_rev\":\"" + this._rev + "\"," +
             "\"title\":\"" + this.title + "\"," +
             "\"description\":\"" + this.description + "\"," +

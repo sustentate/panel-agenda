@@ -39,9 +39,9 @@
               <div class="formgroup">
                 <div class="columf w50">
                   <label for="Nombre"><b>Nombre</b></label>
-                  <input type="text" name="Nombre" required>
+                  <input type="text" name="Nombre" id="evname" required>
                   <label for="Descripcion"><b>Descripcion corta</b></label>
-                  <textarea name="Descipcion" cols="10" rows="10"></textarea>
+                  <textarea name="Descipcion" id="descev" cols="10" rows="10"></textarea>
                 </div>
                 <input class="inputfile" type="file" name="file" id="file" data-multiple-caption="{count} files selected" multiple>
                 <label for="file"><b class="bimgtext"><i class="fas fa-cloud-upload-alt"></i> <span>Arrastra y tira las imagenes aca</span></b></label>
@@ -94,6 +94,7 @@
         <div id="allevents"></div>
       </div>
     </div>
+    <div id="show_test"></div>
     <script src="js/eventos-rest-client.js"></script>
     <script src="js/all.min.js" type="text/javascript"></script>
     <script src="js/jquery.min.js"></script>
