@@ -65,12 +65,17 @@ eventosRestClient.exportListEvent()
           "link" : this.link,
           "published" : this.published,
           "promoted" : this.promoted,
-          "addres" : this.address,
+          "address" : this.address,
           "startDate" : this.startDate,
           "precio" : this.price
       };
       console.log(arrayDt[i]);
-      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
+      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard" id="tituloeventsc'+i+'"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
+      if(arrayDt[i].published){
+        $('#tituloeventsc'+i).append("<span class='spanevent'><i class='fas fa-check-circle'></i></span>");
+      }else{
+        $('#tituloeventsc'+i).append("<span class='spanevent'><i class='fas fa-times'></i></span>");
+      }
       //$("#show_test").append("<div><a id='bt_"+i+"'>click"+arrayDt[i].name+"</a></div>");
       $("#bt_"+i).click(function(){
          show_data(arrayDt[i]);
@@ -90,7 +95,11 @@ eventosRestClient.exportListEvent()
   function show_data(data){
     alert(JSON.stringify(data));
     document.getElementById("evname").setAttribute('value', data.name);
-    document.getElementById("descev").setAttribute('value', data.description);
+    $('#descev').val(data.description);
+    $('#link').val(data.link);
+    $('#address').val(data.address);
+    $('#precio').val(data.precio);
+    
 }
  
 

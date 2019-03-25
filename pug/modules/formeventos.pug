@@ -7,9 +7,9 @@
             .formleft
               .formgroup
                 .columf.w50
-                  label(for="Nombre")
+                  label(for="nombre")
                     b Nombre
-                  input(type="text", name="Nombre" id="evname" required)
+                  input(type="text", name="nombre" id="evname" required)
                   label(for="Descripcion")
                     b Descripcion corta
                   textarea(name="Descipcion", id="descev" cols="10", rows="10")
@@ -30,12 +30,12 @@
                   label(for="desde")
                     b Nombre y apellido
                   input(type="text" name="Nombre" required)
-                  label(for="desde")
+                  label(for="address")
                     b Direccion
-                  input(type="text" name="desde" required)
-                  label(for="desde")
+                  input(type="text" name="address" id="address" required)
+                  label(for="precio")
                     b Pago
-                  input(type="text" name="desde" required)
+                  input(type="text" name="precio" id="precio" required)
                   .checkcontain
                     span 
                       b Propio
@@ -46,15 +46,15 @@
                   label(for="Hasta")
                     b Hasta
                   input(id="hastadate" type="text" data-large-mode="true" data-theme="my-style" data-lang="es" data-max-year="2030" data-format="d-m-Y" name="Hasta" required)
-                  label(for="desde")
+                  label(for="mail")
                     b Mail
-                  input(type="text" name="desde" required)
-                  label(for="desde")
+                  input(type="text" name="mail" required)
+                  label(for="localidad")
                     b Localidad
-                  input(type="text" name="desde" required)
-                  label(for="desde")
+                  input(type="text" name="localidad" required)
+                  label(for="link")
                     b Link
-                  input(type="text" name="desde" required)
+                  input(type="text" name="link" id="link" required)
                   .checkcontain
                     span 
                       b Destacado
@@ -63,7 +63,7 @@
                       span.slider.round
               button(id="btnsubmitevent" type="submit")
                 span Subir <i class="fas fa-external-link-alt"></i>
-    .conteinform
+    .conteinform2
         button.collapsible 
           h3 Todos los Eventos
         #allevents

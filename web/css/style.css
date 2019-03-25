@@ -231,6 +231,18 @@ button:focus {
   max-height: 500px;
   margin-top: 2em; }
 
+.conteinform2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  width: 85%;
+  max-height: 700px;
+  margin-top: 2em; }
+
 .collapsible {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -340,7 +352,8 @@ button:focus {
   flex-direction: column; }
 
 textarea {
-  resize: none; }
+  resize: none;
+  padding: 10px; }
 
 .inputfile {
   width: 0.1px;
@@ -478,7 +491,14 @@ input:checked + .slider:before {
   flex-flow: wrap;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  overflow-y: auto; }
+  overflow-y: auto;
+  height: 29em; }
+
+.spanevent {
+  position: absolute;
+  right: 0.2em;
+  top: 2.2em;
+  font-size: 1.5em; }
 
 .cardsevents {
   display: -webkit-box;
@@ -505,6 +525,7 @@ input:checked + .slider:before {
   transform: scale(1.1); }
 
 .titulocard {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

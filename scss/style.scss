@@ -166,6 +166,13 @@ button:focus {
     max-height: 500px;
     margin-top: 2em;   
 }
+.conteinform2{
+    display: flex;
+    flex-flow: column;
+    width: 85%;
+    max-height: 700px;
+    margin-top: 2em;   
+}
 .collapsible {
     display: flex;
     background-color: #2DAB8C;
@@ -247,6 +254,7 @@ button:focus {
   }
   textarea {
     resize: none;
+    padding: 10px;
   }
   .inputfile {
 	width: 0.1px;
@@ -386,6 +394,13 @@ button:focus {
     flex-flow: wrap;
     justify-content: space-around;
     overflow-y: auto;
+    height: 29em;
+}
+.spanevent{
+    position: absolute;
+    right: 0.2em;
+    top: 2.2em;
+    font-size: 1.5em;
 }
 .cardsevents{
     display: flex;
@@ -404,6 +419,7 @@ button:focus {
     transform: scale(1.1); 
 }
 .titulocard{
+    position: relative;
     display: flex;
     width: 100%;
     height: 3em;
