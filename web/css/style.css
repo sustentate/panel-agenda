@@ -75,11 +75,24 @@ button:focus {
   -webkit-box-shadow: 1px 0px 25px 2px rgba(0, 0, 0, 0.25);
   box-shadow: 1px 0px 25px 2px rgba(0, 0, 0, 0.25); }
 
-#sidebar.active {
-  -webkit-transform: translateX(-15em);
-  transform: translateX(-15em);
+/* #sidebar.active{
+    transform: translateX(-15em) !important;
+    width: 20em;
+    z-index: 1000;
+}
+
+#sidebar.activado{
+    transform: translateX(0em);
+} */
+.extend {
+  -webkit-transform: translateX(0em) !important;
+  transform: translateX(0em) !important; }
+
+.collapsed {
   width: 20em;
-  z-index: 1000; }
+  z-index: 1000;
+  -webkit-transform: translateX(-15em) !important;
+  transform: translateX(-15em) !important; }
 
 #sidebar .topside {
   border-bottom: #139877 solid 2px; }
@@ -121,6 +134,22 @@ button:focus {
   display: block; }
 
 #homea.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-flow: row-reverse;
+  flex-flow: row-reverse;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-right: 20px; }
+
+.desactive {
+  display: block; }
+
+.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -499,6 +528,12 @@ input:checked + .slider:before {
   right: 0.2em;
   top: 2.2em;
   font-size: 1.5em; }
+
+.subido {
+  color: #2ecc71; }
+
+.nosubido {
+  color: #e74c3c; }
 
 .cardsevents {
   display: -webkit-box;

@@ -12,16 +12,16 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
   </head>
   <body>
-    <div id="sidebar">
+    <div class="extend collapsed" id="sidebar">
       <div class="topside">
         <h1>Panel Sustentate</h1>
       </div>
-      <label for="toggle" onclick="toggleSidebar()">&#8801; </label>
+      <label for="toggle" id="collapse-toggle">&#8801; </label>
       <ul>
-        <li> <a id="homea" href="index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li> <a id="eventosa" href="eventos.html"><i class="far fa-calendar"></i> Eventos</a></li>
-        <li> <a id="configa" href=""><i class="fas fa-cog"></i> Configuracion</a></li>
-        <li> <a id="salira" href=""><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+        <li> <a class="desactive active" id="homea" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li> <a class="desactive active" id="eventosa" href="eventos.html"><i class="far fa-calendar"></i> Eventos</a></li>
+        <li> <a class="desactive active" id="configa" href=""><i class="fas fa-cog"></i> Configuracion</a></li>
+        <li> <a class="desactive active" id="salira" href=""><i class="fas fa-sign-out-alt"></i> Salir</a></li>
       </ul>
     </div>
     <div class="container">
@@ -32,6 +32,7 @@
     <script src="js/all.min.js" type="text/javascript"></script>
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/tippy.js@4"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/datedropper.js"></script>

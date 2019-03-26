@@ -55,11 +55,25 @@ button:focus {
     -moz-box-shadow: 1px 0px 25px 2px rgba(0,0,0,0.25);
     box-shadow: 1px 0px 25px 2px rgba(0,0,0,0.25);
 }
-#sidebar.active{
-    transform: translateX(-15em);
+/* #sidebar.active{
+    transform: translateX(-15em) !important;
     width: 20em;
     z-index: 1000;
 }
+
+#sidebar.activado{
+    transform: translateX(0em);
+} */
+
+.extend {
+    transform: translateX(0em) !important;
+  }
+  
+  .collapsed {
+    width: 20em;
+    z-index: 1000;
+    transform: translateX(-15em) !important;
+  }
 #sidebar .topside{
     border-bottom: #139877 solid 2px;
 }
@@ -97,10 +111,19 @@ button:focus {
    display: block;
 }
 #homea.active{
-        display: flex;
+    display: flex;
     flex-flow: row-reverse;
     justify-content: space-between;
     margin-right: 20px;
+ }
+.desactive{
+    display: block;
+}
+.active{
+    display: flex;
+flex-flow: row-reverse;
+justify-content: space-between;
+margin-right: 20px;
 }
 #eventosa{
     display: block;
@@ -401,6 +424,12 @@ button:focus {
     right: 0.2em;
     top: 2.2em;
     font-size: 1.5em;
+}
+.subido{
+    color: #2ecc71;
+}
+.nosubido{
+    color: #e74c3c;
 }
 .cardsevents{
     display: flex;

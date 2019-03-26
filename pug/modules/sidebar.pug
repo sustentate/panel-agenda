@@ -1,13 +1,13 @@
-#sidebar
+#sidebar.extend.collapsed
       .topside
         h1 Panel Sustentate
-      label(for="toggle" onclick="toggleSidebar()") &#8801; 
+      label(for="toggle" id="collapse-toggle" /*onclick="toggleSidebar()"*/) &#8801; 
       ul
         li 
-          a(id="homea" href="index.html") <i class="fas fa-home"></i> Home
+          a(id="homea" class="desactive active" href="index.html") <i class="fas fa-home"></i> Home
         li 
-          a(id="eventosa" href="eventos.html") <i class="far fa-calendar"></i> Eventos
+          a(id="eventosa" class="desactive active" href="eventos.html") <i class="far fa-calendar"></i> Eventos
         li 
-          a(id="configa" href="") <i class="fas fa-cog"></i> Configuracion
+          a(id="configa" class="desactive active" href="") <i class="fas fa-cog"></i> Configuracion
         li 
-          a(id="salira" href="") <i class="fas fa-sign-out-alt"></i> Salir
+          a(id="salira" class="desactive active" href="") <i class="fas fa-sign-out-alt"></i> Salir
