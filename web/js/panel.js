@@ -93,6 +93,7 @@ $('#hastadate').dateDropper();
 
 var eventoscardsall = $('#allevents')
 
+// GET EVENTOS
 eventosRestClient.exportListEvent()
   .then(events => {
     $.each(events, function(i) {
@@ -109,7 +110,7 @@ eventosRestClient.exportListEvent()
           "precio" : this.price
       };
       console.log(arrayDt[i]);
-      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard" id="tituloeventsc'+i+'"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
+      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard" id="tituloeventsc'+i+'"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <div class="esqback"></div> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button id="dlt_'+i+'" class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
       if(arrayDt[i].published){
         $('#tituloeventsc'+i).append("<span class='spanevent subido'><i class='fas fa-check-circle'></i></span>");
       }else{
@@ -119,6 +120,9 @@ eventosRestClient.exportListEvent()
       $("#bt_"+i).click(function(){
          show_data(arrayDt[i]);
       });
+      $("#dlt_"+i).click(function(){
+        delete_event(arrayDt[i]);
+     });
       
   });
   tippy('.subido', {
@@ -138,6 +142,8 @@ eventosRestClient.exportListEvent()
     console.log(err);
   })
 
+  
+//ALERT Y APPEND DATA EN VALUES FORM
   function show_data(data){
     alert(JSON.stringify(data));
     document.getElementById("evname").setAttribute('value', data.name);
@@ -147,7 +153,63 @@ eventosRestClient.exportListEvent()
     $('#precio').val(data.precio);
     
 }
+
+//POST EVENTOS
+$( "#btnsubmitevent" ).click(function() {
+  
+  let titulo = $('#evname').val();
+  let descripcion = $('#descev').val();
+  let linked = $('#link').val();
+  let direccion = $('#address').val();
+  let precio = $('#precio').val();
+
+  var eventonuevo = 
+  {
+    "title": titulo,
+    "description": descripcion,
+    "published": false,
+    "address": "Chorroarín 160, CABA.",
+    "price": precio,
+    "link": linked,
+    "startDateTime": 1552987800765,
+    "type": "festival",
+    "contact": null,
+    "address": direccion
+  }
+  
+  console.log(eventonuevo)
+  eventosRestClient.createEvent(eventonuevo)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
  
+});
+
+//DELETE EVENTOS
+
+function delete_event(data){
+  console.log(data.id)
+  swal({
+    title: "Eliminar Evento",
+    text: "Deseas eliminar el evento " + data.name + " ?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    closeOnClickOutside: false,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("El evento fue eliminado correctamente!", {
+        icon: "success",
+      });
+    } else {
+      swal("Decidiste no eliminar el evento");
+    }
+  });
+}
 
 /*axios.get('https://sustentatemiddleware-generous-bonobo.mybluemix.net/events')
   .then(function(res) {

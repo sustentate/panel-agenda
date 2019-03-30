@@ -2,11 +2,10 @@ const eventosRestClient = {
 
       
     _URL: "https://sustentatemiddleware-generous-bonobo.mybluemix.net/events",
-
+    
     getEvents(){
         return axios.get(this._URL, {headers: { 'Content-Type': 'multipart/form-data' }}).then(response => response.data)
     },
-
     createEvent(event){
         /* event tiene la forma
         {
@@ -22,7 +21,7 @@ const eventosRestClient = {
           type: null
         }
         */
-        return axios.post(this._URL, event)
+        return axios.post(this._URL, JSON.stringify(event), { headers: { 'Content-Type': 'application/json' } })
     },
 
     updateEvent(event) {
