@@ -48,7 +48,7 @@ button:focus {
     flex-direction: column;
     height: 100%;
     background-color: #2DAB8C;
-    width: 19em;
+    width: 20em;
     z-index: 1000;
     transition: all 100ms linear;
     -webkit-box-shadow: 1px 0px 25px 2px rgba(0,0,0,0.25);

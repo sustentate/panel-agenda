@@ -4,26 +4,13 @@ const pug = require('gulp-pug');
 const sass        = require('gulp-sass');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
-const connect = require('gulp-connect');
 
-
-var cors = function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'headers_you_want_to_accept');
-  next();
-};
-var server = {
-    baseDir: "./web",
-    middleware: function (req, res, next) {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        next();
-      }
-  };
 /* var reload = browserSync.reload; */
 // Compilacion de los Archivos SCSS
 function browser_sync(done){
     browserSync.init({
-        server:  server
+        server: "./web",
+        cors: true
     });
     done();
 };

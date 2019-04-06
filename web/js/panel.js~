@@ -91,31 +91,6 @@ Array.prototype.forEach.call( inputs, function( input )
 $('#desdedate').dateDropper();
 $('#hastadate').dateDropper();
 
-//Input
-//function validateEventJS(){
-//    var errores: 0;
-//    if(!$('#descev').val()){
-//        errores++    
-//    }
-//    if(!$('#link').val()){
-//        errores++
-//    }
-//    if(!$('#address').val()){
-//        errores++
-//    }
-//    if(!$('#precio').val()){
-//        errores++
-//    }
-//    if(errores){
-//        event.preventDefault()
-//        console.log(errores);
-//        return false;    
-//    }else{
-//        return true;
-//    }
-//}
-
-
 var eventoscardsall = $('#allevents')
 
 // GET EVENTOS
