@@ -46,9 +46,9 @@ if (state === null) {
   if (!closed) {
     $('#sidebar').removeClass('collapsed');
     $('#homea').removeClass('desactive');
-  $('#eventosa').removeClass('desactive');
-  $('#configa').removeClass('desactive');
-  $('#salira').removeClass('desactive');
+    $('#eventosa').removeClass('desactive');
+    $('#configa').removeClass('desactive');
+    $('#salira').removeClass('desactive');
   }
 }
 });
@@ -110,7 +110,7 @@ eventosRestClient.exportListEvent()
           "precio" : this.price
       };
       console.log(arrayDt[i]);
-      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard" id="tituloeventsc'+i+'"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <div class="esqback"></div> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button class="editbtn" ><i class="fas fa-check"></i></button> <button id="dlt_'+i+'" class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
+      eventoscardsall.append('<div class="cardsevents"> <div class="titulocard" id="tituloeventsc'+i+'"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <div class="esqback"></div> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button id="pub_'+i+'" class="editbtn" ><i class="fas fa-check"></i></button> <button id="dlt_'+i+'" class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
       if(arrayDt[i].published){
         $('#tituloeventsc'+i).append("<span class='spanevent subido'><i class='fas fa-check-circle'></i></span>");
       }else{
@@ -118,13 +118,17 @@ eventosRestClient.exportListEvent()
       }
       //$("#show_test").append("<div><a id='bt_"+i+"'>click"+arrayDt[i].name+"</a></div>");
       $("#bt_"+i).click(function(){
-         show_data(arrayDt[i]);
+        show_data(arrayDt[i]);
       });
       $("#dlt_"+i).click(function(){
         delete_event(arrayDt[i]);
-     });
+      });
+      $("#pub_"+i).click(function(){
+        pub_event(arrayDt[i]);
+      });
       
   });
+
   tippy('.subido', {
     content: "Este evento esta publicado!",
   })
@@ -145,13 +149,34 @@ eventosRestClient.exportListEvent()
   
 //ALERT Y APPEND DATA EN VALUES FORM
   function show_data(data){
-    alert(JSON.stringify(data));
+    /* alert(JSON.stringify(data)); */
     document.getElementById("evname").setAttribute('value', data.name);
     $('#descev').val(data.description);
     $('#link').val(data.link);
     $('#address').val(data.address);
     $('#precio').val(data.precio);
     
+}
+//PUBLICA EVENTO
+
+function pub_event(data){
+  let eventodata = JSON.stringify(data);
+  swal({
+    title: "¿Deseas Publicar el evento " + data.name + "?",
+    text: eventodata,
+    icon: "info",
+    buttons: true,
+    closeOnClickOutside: false
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("El evento fue publicado correctamente", {
+        icon: "success",
+      });
+    } else {
+      swal("El evento no fue publicado");
+    }
+  });
 }
 
 //POST EVENTOS
@@ -167,11 +192,9 @@ $( "#btnsubmitevent" ).click(function() {
   {
     "title": titulo,
     "description": descripcion,
-    "published": false,
-    "address": "Chorroarín 160, CABA.",
+    "published": true,
     "price": precio,
     "link": linked,
-    "startDateTime": 1552987800765,
     "type": "festival",
     "contact": null,
     "address": direccion
