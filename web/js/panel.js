@@ -131,8 +131,9 @@ eventosRestClient.exportListEvent()
           "published" : this.published,
           "promoted" : this.promoted,
           "address" : this.address,
-          "startDate" : this.startDate,
-          "precio" : this.price
+          "startDate" : this.startDateTime,
+          "precio" : this.price,
+          "type" : this.type
       };
       console.log(arrayDt[i]);
       eventoscardsall.append('<div class="cardsevents"> <div class="titulocard" id="tituloeventsc'+i+'"><h4>'+arrayDt[i].name+'</h4></div> <div class="imgcontentcard"> <div class="esqback"></div> <img class="imgcard" src="https://source.unsplash.com/random"></div> <div class="btncardbot"> <button id="bt_'+i+'" class="editbtn" ><i class="fas fa-pen"></i></button> <button id="pub_'+i+'" class="editbtn" ><i class="fas fa-check"></i></button> <button id="dlt_'+i+'" class="editbtn" ><i class="fas fa-trash"></i></button>  <div></div> </div>')
@@ -204,36 +205,73 @@ function pub_event(data){
   });
 }
 
+var errores = 0;
 //POST EVENTOS
-$( "#btnsubmitevent" ).click(function() {
-  
+$( "#btnsubmitevent" ).click(function(e) {
+  e.preventDefault();
+  $('#loadingpost').show();
+  $('#loadpost').css( "flex-direction", "column-reverse" );
   let titulo = $('#evname').val();
   let descripcion = $('#descev').val();
   let linked = $('#link').val();
   let direccion = $('#address').val();
   let precio = $('#precio').val();
-
-  var eventonuevo = 
-  {
-    "title": titulo,
-    "description": descripcion,
-    "published": true,
-    "price": precio,
-    "link": linked,
-    "type": "festival",
-    "contact": null,
-    "address": direccion
+  if(!titulo){
+    errores++;
   }
-  
-  console.log(eventonuevo)
-  eventosRestClient.createEvent(eventonuevo)
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
- 
+  if(!descripcion){
+    errores++;
+  }
+  if(!linked){
+    errores++;
+  }
+  if(!direccion){
+    errores++;
+  }
+  if(!precio){
+    errores++;
+  }
+  if(errores == 0){
+      var eventonuevo = 
+    {
+      "title": titulo,
+      "description": descripcion,
+      "published": true,
+      "price": precio,
+      "link": linked,
+      "type": "festival",
+      "contact": null,
+      "address": direccion,
+      "startDateTime" : 12232132
+    }
+    
+    console.log(eventonuevo)
+    eventosRestClient.createEvent(eventonuevo)
+    .then(function (response) {
+      $('#loadingpost').hide();
+      swal({
+        text: "El evento fue subido correctamente, se actualizara la pagina!",
+        icon: "success"
+      })
+        .then(() => {
+          location.reload();
+        });
+      console.log(response.statusText);
+      
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }else{
+    swal("Todos los campos deben estar completos")
+    .then(() => {
+      $('#loadingpost').hide();
+      $('#loadpost').css( "flex-direction", "row" );
+      errores = 0;
+    });
+    
+  } 
+   
 });
 
 //DELETE EVENTOS

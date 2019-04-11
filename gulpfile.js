@@ -4,7 +4,7 @@ const pug = require('gulp-pug');
 const sass        = require('gulp-sass');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
-const connect = require('gulp-connect');
+
 
 
 var cors = function (req, res, next) {

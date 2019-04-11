@@ -1,10 +1,10 @@
 const eventosRestClient = {
 
-      
+    _proxyurl : "https://cors-anywhere.herokuapp.com/",
     _URL: "https://sustentatemiddleware-generous-bonobo.mybluemix.net/events",
     
     getEvents(){
-        return axios.get(this._URL).then(response => response.data)
+        return axios.get(this._proxyurl + this._URL).then(response => response.data)
     },
     createEvent(event){
         /* event tiene la forma
@@ -21,7 +21,7 @@ const eventosRestClient = {
           type: null
         }
         */
-        return axios.post(this._URL, JSON.stringify(event), { headers: { 'Content-Type': 'application/json' } })
+        return axios.post(this._proxyurl + this._URL, JSON.stringify(event), { headers: { 'Content-Type': 'application/json' } })
     },
 
     updateEvent(event) {
